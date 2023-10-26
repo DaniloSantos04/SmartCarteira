@@ -1,13 +1,17 @@
-<mat-toolbar>
-  <button mat-icon-button class="menu-icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>SmartCarteira</span>
-  <span class="menu-spacer"></span>
-  <button mat-icon-button class="person-icon">
-    <mat-icon>person</mat-icon>
-  </button>
-  <span>Danilo</span>
-</mat-toolbar>
+<app-navbar (eventoToggleButon)="toggleButon()"></app-navbar>
 
+<mat-drawer-container class="example-container">+
+
+  <mat-drawer #drawer>
+    MENU
+
+  </mat-drawer>
+
+
+<mat-drawer-content>
+OI
 <router-outlet></router-outlet>
+
+
+</mat-drawer-content>
+</mat-drawer-container>

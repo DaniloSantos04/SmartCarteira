@@ -8,12 +8,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { NavbarComponent } from 'src/template/navbar/navbar.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
