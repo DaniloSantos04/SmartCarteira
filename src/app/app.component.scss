@@ -1,6 +1,7 @@
 .example-container {
-  width: 99vw; /* 50% da largura da tela */
-  height: 89vh; /* 40% da altura da tela */
+  width: calc(100% - 2vw); /*99vw; /*99% da largura da tela */
+  height: calc(100% - 12vh); /*89vh; /* 89% da altura da tela */
   margin: 12px;
+  overflow: auto;
 }
 
