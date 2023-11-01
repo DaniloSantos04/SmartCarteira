@@ -1,0 +1,6 @@
+.card {
+  width: calc(100% - 20vw);
+  height: calc(100% - 70vh);
+  margin: 15px;
+  overflow: auto;
+}
