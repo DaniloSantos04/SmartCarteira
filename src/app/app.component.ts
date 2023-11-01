@@ -1,4 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 export interface Section {
   order: number,
@@ -18,16 +21,24 @@ export class AppComponent {
   title = 'smartCarteira';
   @ViewChild("drawer")matdrawer:any;
 
+  constructor(private router: Router) {}
+
   toggleButon(){
-    console.log("OK!");
+
     this.matdrawer.toggle();
   }
+
+  redirectToPage(path: string) {
+    console.log(path);
+    this.router.navigate([path]);
+  }
+
 
   menus: Section[] = [
     {
       "order": 1,
       "name": "Inicio",
-      "path": "home",
+      "path": "/home",
       "component": "HomeComponent",
       "icone": "home",
       "nivel": 0
@@ -35,7 +46,7 @@ export class AppComponent {
   {
     "order": 2,
     "name": "Painel",
-    "path": "dashboard",
+    "path": "/dashboard",
     "component": "DashboardComponent",
     "icone": "dashboard",
     "nivel": 3
@@ -43,7 +54,7 @@ export class AppComponent {
   {
     "order": 3,
     "name": "Cartões",
-    "path": "credit",
+    "path": "/credit",
     "component": "CreditComponent",
     "icone": "credit_card",
     "nivel": 0
@@ -51,7 +62,7 @@ export class AppComponent {
   {
     "order": 4,
     "name": "Faturas",
-    "path": "invoice",
+    "path": "/invoice",
     "component": "InvoiceComponent",
     "icone": "receipt",
     "nivel": 0
@@ -59,7 +70,7 @@ export class AppComponent {
   {
     "order": 5,
     "name": "Compras",
-    "path": "shopping",
+    "path": "/shopping",
     "component": "ShoppingComponent",
     "icone": "shopping_cart",
     "nivel": 0

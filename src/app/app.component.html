@@ -4,9 +4,9 @@
 
   <mat-drawer #drawer>
     <mat-list>
-      <mat-list-item *ngFor="let item of menus">
-        <mat-icon matListItemIcon>{{item.icone}}</mat-icon>
-        <div matListItemTitle>{{item.name}}</div>
+      <mat-list-item *ngFor="let item of menus" >
+        <mat-icon matListItemIcon (click)="redirectToPage(item.path)">{{item.icone}}</mat-icon>
+        <div matListItemTitle (click)="redirectToPage(item.path)">{{item.name}}</div>
       </mat-list-item>
     </mat-list>
 
@@ -14,7 +14,7 @@
 
 
   <mat-drawer-content>
-    OI
+
   <router-outlet></router-outlet>
 
   </mat-drawer-content>
