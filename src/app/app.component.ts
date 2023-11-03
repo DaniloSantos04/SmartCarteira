@@ -29,7 +29,6 @@ export class AppComponent {
   }
 
   redirectToPage(path: string) {
-    console.log(path);
     this.router.navigate([path]);
   }
 
@@ -53,7 +52,7 @@ export class AppComponent {
   },
   {
     "order": 3,
-    "name": "Cartões",
+    "name": "Cartão de Crédito",
     "path": "/credit",
     "component": "CreditComponent",
     "icone": "credit_card",

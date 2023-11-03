@@ -1,0 +1,28 @@
+.card-container {
+  margin-top: 20px; /* Adiciona margem no topo da div */
+  margin-left: 20px; /* Adiciona margem à esquerda da div */
+  display: flex; /* Utilize flexbox */
+  flex-wrap: wrap; /* Quebra para a próxima linha se não couberem */
+  gap: 20px; /* Espaço entre os cartões */
+}
+.credit-card {
+  max-width: 400px;
+  margin-bottom: 8px;
+  font-size: .7rem;
+}
+
+.card-imagem{
+  max-width: 80px;
+  max-height: 53px;
+  margin: 10px;
+}
+
+.mat-card-title,
+.mat-card-subtitle {
+  margin-left: 20px; /* Adiciona margem à esquerda do mat-card-title e mat-card-subtitle */
+}
+
+.space-above {
+  margin-top: 1px;
+}
+
