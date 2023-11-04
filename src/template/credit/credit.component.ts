@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common'; // Importe o CommonModule
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
+import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
 
 
 @Component({
@@ -43,7 +43,8 @@ export class CreditComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -51,6 +52,13 @@ export class CreditComponent implements OnInit {
   create(){
     console.log("create()");
     this.router.navigate(["create"], { relativeTo: this.activatedRoute });
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(CreditDialogComponent, {
+      height: '156px',
+      width: '400px',
+    });
   }
 
 }

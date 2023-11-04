@@ -12,8 +12,6 @@
     <mat-divider></mat-divider>
 </mat-card>
 
-
-
 <div class="card-container">
   <mat-card class="credit-card" *ngFor="let card of cards">
 
@@ -34,7 +32,7 @@
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" matTooltip="Excluir">
+      <button mat-icon-button color="warn" matTooltip="Excluir" (click)="openDialog('3000ms', '1500ms')">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-card-actions>
