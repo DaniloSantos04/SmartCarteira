@@ -26,18 +26,19 @@ import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
 })
 export class CreditComponent implements OnInit {
 
+  //TODO - a imagem tem que ser salva em base64
   cards = [
     {
       name: 'Azul',
       duedate: '09',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRMYKv8fh4EOpqK0r4f4RWmLbC6XKX0dGEpAH_ghAxtF2PXmAYzQNMQnfWeqi0fTqsTn0&usqp=CAU',
-      titular: 'Danilo Santos'
+      betterDay: '02'
     },
     {
       name: 'Gol',
       duedate: '15',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSc4wShYqZWqXopLWjJkgmjnWJ2BfmZb68PHlPS-pQG7wV3TJ6HscsO8OY3-_d4MmdAc&usqp=CAU',
-      titular: 'Danilo Santos'
+      betterDay: '05'
     }
   ];
 
