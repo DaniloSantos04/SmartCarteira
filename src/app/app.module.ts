@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -15,18 +16,19 @@ import { NavbarComponent } from 'src/template/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
-
-
-import { DatePipe, NgFor } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { CreditDetailsComponent } from 'src/template/credit/credit-details/credit-details.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreditDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,14 +38,18 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatDividerModule,
     MatSelectModule,
     MatFormFieldModule,
-    NgFor,
-    DatePipe,
     MatListModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

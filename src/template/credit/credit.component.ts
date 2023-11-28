@@ -55,9 +55,13 @@ export class CreditComponent implements OnInit {
     this.router.navigate(["create"], { relativeTo: this.activatedRoute });
   }
 
+  update(card: any){
+
+  }
+
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(CreditDialogComponent, {
-      height: '156px',
+      height: '172px',
       width: '400px',
     });
   }

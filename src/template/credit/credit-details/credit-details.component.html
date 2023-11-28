@@ -4,44 +4,46 @@
   </mat-card-header>
 
   <mat-card-content>
-
     <div class="div-mat-form-container">
+      <form [formGroup]="formCard">
+        <mat-form-field appearance="outline">
+          <mat-label>Cartões</mat-label>
+          <mat-select formControlName="card">
+            <mat-option *ngFor="let card of cards" [value]="card">{{ card }}</mat-option>
+            <mat-option value="outro">Outro</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input type="text" matInput #nomeCartao>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Vencimento</mat-label>
+          <mat-select formControlName="dueDate">
+            <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Vencimento</mat-label>
-        <mat-select [(ngModel)]="dataVencimento" (change)="selecionarDataVencimento($event)">
-          <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Melhor dia de compra</mat-label>
+          <mat-select formControlName="betterDay">
+            <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Melhor dia de compra</mat-label>
-        <mat-select [(ngModel)]="melhorDataCompra" (change)="selecionarMelhorDiaCompra($event)">
-          <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
+        <mat-form-field appearance="outline" *ngIf="formCard.get('card')?.value === 'outro'">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      </form>
     </div>
-
-
     <mat-divider></mat-divider>
   </mat-card-content>
 
   <mat-card-actions class="card-actions">
+    <button mat-icon-button color="primary" matTooltip="Salvar" (click)="onSubimit()">
+      <mat-icon>save</mat-icon>
+    </button>
 
-      <button mat-icon-button color="primary" matTooltip="Salvar" (click)="onSubimit()" >
-        <mat-icon>save</mat-icon>
-      </button>
-
-      <button mat-icon-button color="warn" matTooltip="Cancelar" (click)="onCancel()">
-        <mat-icon>cancel</mat-icon>
-      </button>
-    </mat-card-actions>
+    <button mat-icon-button color="warn" matTooltip="Cancelar" (click)="onCancel()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-card-actions>
 </mat-card>
-

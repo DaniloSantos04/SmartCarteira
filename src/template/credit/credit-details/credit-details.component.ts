@@ -1,25 +1,16 @@
-import { Location, NgFor } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
 @Component({
   selector: 'app-credit-details',
   templateUrl: './credit-details.component.html',
-  styleUrls: ['./credit-details.component.css'],
+  styleUrls: ['./credit-details.component.css']/*,
   standalone: true,
   imports: [
-    FormsModule,
     MatCardModule,
     MatDividerModule,
     MatButtonModule,
@@ -27,36 +18,53 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
-    NgFor,
-    MatTooltipModule
-  ]
+    MatTooltipModule,
+  ]*/
 })
 export class CreditDetailsComponent implements OnInit {
-  @ViewChild('nomeCartao') nomeCartao!: ElementRef;
 
+  formCard: FormGroup;
   datas: number[] = [];
-  dataVencimento: number | null = null;
-  melhorDataCompra: number | null = null;
+  cards: string[] = [];
 
 
   constructor(
+    private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private location: Location
     ) {
       for (let i = 1; i <= 28; i++) {
         this.datas.push(i);
-      }
+      };
+
+      this.cards.push(...this.loadCard());
+
+      this.formCard = this.formBuilder.group({
+        name: [null, Validators.required],
+        dueDate: [null],
+        betterDay: [null],
+        card: []
+      });
+
+      this.formCard.get('card')?.valueChanges.subscribe((value) => {
+        if (value === 'outro') {
+          this.formCard.get('name')?.setValidators([Validators.required]);
+        } else {
+          this.formCard.get('name')?.clearValidators();
+        }
+
+        this.formCard.get('name')?.updateValueAndValidity();
+      });
+
+
    }
 
   ngOnInit() {
   }
 
-  selecionarDataVencimento(event: any) {
-    this.dataVencimento = event.value;
-  }
-
-  selecionarMelhorDiaCompra(event: any) {
-    this.melhorDataCompra = event.value;
+  loadCard(): string[] {
+    const cardData: string[] = ['C6 Black', 'Digio'];
+    return cardData;
   }
 
   onCancel() {
@@ -69,11 +77,8 @@ export class CreditDetailsComponent implements OnInit {
   }
 
   onSubimit() {
+    console.log(this.formCard.value);
     //TODO - substituir pelo metodo de salvar no back-end
-    const valorNome = this.nomeCartao.nativeElement.value;
-    console.log('Valor digitado no campo Nome:', valorNome);
-    console.log('Opção selecionada:', this.dataVencimento);
-
     this.location.back();
     this.snackBar.open("Salvei! Cartão guardado no cofrinho do sucesso financeiro!", '', {
       duration: 6000,
