@@ -51,11 +51,13 @@ export class CreditComponent implements OnInit {
   }
 
   create(){
-    console.log("create()");
     this.router.navigate(["create"], { relativeTo: this.activatedRoute });
   }
 
   update(card: any){
+    this.router.navigate(['edit'], { relativeTo: this.activatedRoute, state: { card: card } });
+    //this.router.navigate(['edit', { card: card.name }], { relativeTo: this.activatedRoute });
+
 
   }
 

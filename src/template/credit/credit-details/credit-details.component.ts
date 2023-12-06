@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 
@@ -23,28 +24,29 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CreditDetailsComponent implements OnInit {
 
-  formCard: FormGroup;
   datas: number[] = [];
   cards: string[] = [];
 
+  formCard = this.formBuilder.group({
+    name: new FormControl<string>(''),
+    dueDate: new FormControl<number>(0),
+    betterDay: new FormControl<number>(0),
+    card: new FormControl<string>('')
+  });
+
+
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: NonNullableFormBuilder,
     private snackBar: MatSnackBar,
-    private location: Location
+    private location: Location,
+    private activatedRoute: ActivatedRoute
     ) {
       for (let i = 1; i <= 28; i++) {
         this.datas.push(i);
       };
 
       this.cards.push(...this.loadCard());
-
-      this.formCard = this.formBuilder.group({
-        name: [null, Validators.required],
-        dueDate: [null],
-        betterDay: [null],
-        card: []
-      });
 
       this.formCard.get('card')?.valueChanges.subscribe((value) => {
         if (value === 'outro') {
@@ -60,11 +62,34 @@ export class CreditDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      const card = history.state.card;
+      this.fillFormFromState(card);
+    });
+
   }
 
   loadCard(): string[] {
-    const cardData: string[] = ['C6 Black', 'Digio'];
+    const cardData: string[] = ['C6 Black', 'Digio', 'Gol'];
     return cardData;
+  }
+
+  private fillFormFromState(card: any) {
+    console.log("fillFormFromState - start");
+    console.log(card);
+    if (card) {
+      console.log("fillFormFromState - IF - start");
+      console.log(card);
+
+      this.formCard.setValue({
+        name: card.name,
+        dueDate: parseInt(card.duedate),
+        betterDay: parseInt(card.betterDay),
+        card: this.loadCard().some(cardData => card.name === cardData) ? card.name : 'outro'
+      });
+      console.log("fillFormFromState - IF - end");
+    }
+    console.log("fillFormFromState - end");
   }
 
   onCancel() {
