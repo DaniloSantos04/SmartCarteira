@@ -29,12 +29,14 @@ export class CreditComponent implements OnInit {
   //TODO - a imagem tem que ser salva em base64
   cards = [
     {
+      id: 1,
       name: 'Azul',
       duedate: '09',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRMYKv8fh4EOpqK0r4f4RWmLbC6XKX0dGEpAH_ghAxtF2PXmAYzQNMQnfWeqi0fTqsTn0&usqp=CAU',
       betterDay: '02'
     },
     {
+      id: 2,
       name: 'Gol',
       duedate: '15',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSc4wShYqZWqXopLWjJkgmjnWJ2BfmZb68PHlPS-pQG7wV3TJ6HscsO8OY3-_d4MmdAc&usqp=CAU',
@@ -56,15 +58,16 @@ export class CreditComponent implements OnInit {
 
   update(card: any){
     this.router.navigate(['edit'], { relativeTo: this.activatedRoute, state: { card: card } });
-    //this.router.navigate(['edit', { card: card.name }], { relativeTo: this.activatedRoute });
-
-
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  delete(card: any): void {
+    console.log(card);
     this.dialog.open(CreditDialogComponent, {
       height: '172px',
       width: '400px',
+      data: {
+        cardData: card
+      }
     });
   }
 

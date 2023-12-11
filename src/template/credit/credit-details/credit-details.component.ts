@@ -9,18 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-credit-details',
   templateUrl: './credit-details.component.html',
-  styleUrls: ['./credit-details.component.css']/*,
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSelectModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatTooltipModule,
-  ]*/
+  styleUrls: ['./credit-details.component.css']
 })
 export class CreditDetailsComponent implements OnInit {
 
@@ -75,21 +64,14 @@ export class CreditDetailsComponent implements OnInit {
   }
 
   private fillFormFromState(card: any) {
-    console.log("fillFormFromState - start");
-    console.log(card);
     if (card) {
-      console.log("fillFormFromState - IF - start");
-      console.log(card);
-
       this.formCard.setValue({
         name: card.name,
         dueDate: parseInt(card.duedate),
         betterDay: parseInt(card.betterDay),
         card: this.loadCard().some(cardData => card.name === cardData) ? card.name : 'outro'
       });
-      console.log("fillFormFromState - IF - end");
     }
-    console.log("fillFormFromState - end");
   }
 
   onCancel() {
