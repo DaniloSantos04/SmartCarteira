@@ -7,7 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CardsService } from 'src/core/service/card/cards.service';
+import { CardService } from 'src/core/service/card/card.service';
 import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
 
 export interface Card {
@@ -42,7 +42,7 @@ export class CreditComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private dialog: MatDialog,
-    private cardsService: CardsService) {
+    private cardService: CardService) {
       this.listAllCards();
     }
 
@@ -70,7 +70,7 @@ export class CreditComponent implements OnInit {
   }
 
   private listAllCards(){
-    this.cardsService.listAllCards().subscribe(datas => this.cards = datas)
+    this.cardService.listAllCards().subscribe(datas => this.cards = datas)
   }
 
 }

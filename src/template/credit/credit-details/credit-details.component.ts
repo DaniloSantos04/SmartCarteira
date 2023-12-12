@@ -4,7 +4,7 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { CardsService } from 'src/core/service/card/cards.service';
+import { CardService } from 'src/core/service/card/card.service';
 import { Card } from '../credit.component';
 
 
@@ -31,7 +31,7 @@ export class CreditDetailsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private location: Location,
     private activatedRoute: ActivatedRoute,
-    private cardsService: CardsService
+    private cardService: CardService
     ) {
 
       for (let i = 1; i <= 28; i++) {
@@ -70,7 +70,7 @@ export class CreditDetailsComponent implements OnInit {
   }
 
   loadNameCard(): Observable<String[]> {
-    return this.cardsService.listAllNameCards();
+    return this.cardService.listAllNameCards();
   }
 
   private async fillFormFromState(card: Card) {

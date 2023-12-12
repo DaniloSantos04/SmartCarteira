@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Card } from 'src/template/credit/credit.component';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class CardsService {
+export class CardService {
 
   private readonly URL_CARDS = "/assets/cards.json"
 
