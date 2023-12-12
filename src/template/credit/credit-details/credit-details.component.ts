@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
 import { CardsService } from 'src/core/service/cards.service';
 import { Card } from '../credit.component';
-
 
 
 @Component({
@@ -33,7 +33,6 @@ export class CreditDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private cardsService: CardsService
     ) {
-      this.cards.push(...this.loadCard());
 
       for (let i = 1; i <= 28; i++) {
         this.datas.push(i);
@@ -53,6 +52,16 @@ export class CreditDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.loadNameCard().subscribe(
+      data => {
+        this.cards = data;
+      },
+      error => {
+        console.error('Erro ao carregar nomes de cartões:', error);
+      }
+    );
+
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       const card = history.state.card;
       this.fillFormFromState(card);
@@ -60,18 +69,24 @@ export class CreditDetailsComponent implements OnInit {
 
   }
 
-  loadCard(): String[] {
+  loadNameCard(): Observable<String[]> {
     return this.cardsService.listAllNameCards();
   }
 
-  private fillFormFromState(card: Card) {
+  private async fillFormFromState(card: Card) {
     if (card) {
-      this.formCard.setValue({
-        name: card.name,
-        dueDate: parseInt(card.duedate),
-        betterDay: parseInt(card.betterDay),
-        card: this.loadCard().some(cardData => card.name === cardData) ? card.name : 'outro'
-      });
+      const nameCards: String[] | undefined = await this.loadNameCard().toPromise();
+
+      if (nameCards) {
+        this.formCard.setValue({
+          name: card.name,
+          dueDate: parseInt(card.duedate),
+          betterDay: parseInt(card.betterDay),
+          card: nameCards.some((cardData: String) => card.name === cardData) ? card.name : 'outro'
+        });
+      } else {
+        console.error('Erro ao carregar nomes de cartões:', nameCards);
+      }
     }
   }
 

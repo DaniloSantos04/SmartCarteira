@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Card } from 'src/template/credit/credit.component';
 
 @Injectable({
@@ -8,24 +9,17 @@ import { Card } from 'src/template/credit/credit.component';
 })
 export class CardsService {
 
-  allCards!: Observable<Card[]>;
-  nameCards: String[] = [];
-
-
   private readonly URL_CARDS = "/assets/cards.json"
 
   constructor(private httpClient: HttpClient) { }
 
-  listAllCards(){
-    this.allCards = this.httpClient.get<Card[]>(this.URL_CARDS);
-    return this.allCards;
+  listAllCards(): Observable<Card[]>{
+    return this.httpClient.get<Card[]>(this.URL_CARDS);
   }
 
-  listAllNameCards(): String[] {
-
-    this.httpClient.get<Card[]>(this.URL_CARDS).subscribe(data => {
-      this.nameCards = data.map(card => card.name);
-    });
-    return this.nameCards;
+  listAllNameCards(): Observable<String[]> {
+    return this.httpClient.get<Card[]>(this.URL_CARDS).pipe(
+      map(cards => cards.map(card => card.name))
+    );
   }
 }
