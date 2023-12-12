@@ -26,7 +26,7 @@ export class AppComponent {
 
   constructor(private router: Router,
     private menuService: MenuService) {
-    this.menus = this.loadMenus();
+    this.loadMenus();
   }
 
   toggleButon(){
@@ -38,59 +38,8 @@ export class AppComponent {
     this.router.navigate([path]);
   }
 
-  private loadMenus(): Section[]{
-    this.menuService.loadMenus().subscribe(datas => this.menus = datas)
-    return [
-      {
-        "order": 1,
-        "name": "Inicio",
-        "path": "home",
-        "component": "HomeComponent",
-        "icone": "home",
-        "nivel": 0
-    },
-    {
-      "order": 2,
-      "name": "Painel",
-      "path": "dashboard",
-      "component": "DashboardComponent",
-      "icone": "dashboard",
-      "nivel": 3
-    },
-    {
-      "order": 3,
-      "name": "Recursos",
-      "path": "resource",
-      "component": "ResourceComponent",
-      "icone": "monetization_on",
-      "nivel": 0
-    },
-    {
-      "order": 4,
-      "name": "Cartões",
-      "path": "credit",
-      "component": "CreditComponent",
-      "icone": "credit_card",
-      "nivel": 0
-    },
-    {
-      "order": 5,
-      "name": "Faturas",
-      "path": "invoice",
-      "component": "InvoiceComponent",
-      "icone": "receipt",
-      "nivel": 0
-    },
-    {
-      "order": 6,
-      "name": "Compras",
-      "path": "shopping",
-      "component": "ShoppingComponent",
-      "icone": "shopping_cart",
-      "nivel": 0
-    }
-    ];
-
+  private loadMenus(){
+    this.menuService.loadMenus().subscribe(datas => this.menus = datas);
   }
 
 
