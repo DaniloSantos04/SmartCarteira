@@ -4,7 +4,7 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { CardsService } from 'src/core/service/cards.service';
+import { CardsService } from 'src/core/service/card/cards.service';
 import { Card } from '../credit.component';
 
 

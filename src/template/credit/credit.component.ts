@@ -7,7 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CardsService } from 'src/core/service/cards.service';
+import { CardsService } from 'src/core/service/card/cards.service';
 import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
 
 export interface Card {
