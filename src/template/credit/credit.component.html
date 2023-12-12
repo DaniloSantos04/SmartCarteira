@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title class="mat-card-title">Cartão de Crédito</mat-card-title>
+    <p class="space-above"></p>
+    <mat-divider></mat-divider>
+    <p class="space-above"></p>
+    <mat-card-subtitle class="mat-card-subtitle">Junte todos os cartões de crédito que você usa para o acompanhamento financeira.</mat-card-subtitle>
+    <p class="space-above"></p>
+    <mat-divider></mat-divider>
+    <button mat-icon-button color="primary" matTooltip="Novo Cartão" (click)="create()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+</mat-card>
+
+<div class="card-container">
+  <mat-card class="credit-card" *ngFor="let card of cards">
+
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{card.name}}</mat-card-title>
+        <mat-card-subtitle>Vencimento: {{card.duedate}} </mat-card-subtitle>
+        <mat-card-subtitle>Melhor data: {{card.betterDay}}</mat-card-subtitle>
+        <img class= "card-imagem" mat-card-sm-image [src]="card.image" alt="{{card.name}}">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-icon-button color="primary" matTooltip="Editar" (click)="update(card)">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" matTooltip="Excluir" (click)="delete(card)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+

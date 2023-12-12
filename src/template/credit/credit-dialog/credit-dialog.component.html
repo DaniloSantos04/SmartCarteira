@@ -1,0 +1,18 @@
+<mat-card class="card-dialog">
+  <mat-card-title-group classe="card-group-title">
+    <mat-card-title class="card-title">{{card.name}}</mat-card-title>
+    <mat-card-subtitle class="card-subtitle">Vencimento: {{card.duedate}} </mat-card-subtitle>
+    <mat-card-subtitle class="card-subtitle">Melhor data: {{card.betterDay}} </mat-card-subtitle>
+    <img class="card-imagem" mat-card-sm-image [src]="card.image">
+  </mat-card-title-group>
+
+  <mat-card-content>
+    <p class="space-above"></p>
+    <p class="msg-text">Ops! Quer mesmo dar 'tchau' para esse cartão?</p>
+    <p class="space-above"></p>
+  </mat-card-content>
+  <mat-card-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="onSubimit()">Sim, apagar agora</button>
+    <button mat-raised-button color="accent"(click)="onCancel()">Não, ainda preciso dele!</button>
+  </mat-card-actions>
+</mat-card>

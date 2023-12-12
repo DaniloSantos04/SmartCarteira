@@ -1,0 +1,32 @@
+.card-group-title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.card-title,
+.card-subtitle {
+  margin-left: 20px; /* Adiciona margem à esquerda do mat-card-title e mat-card-subtitle */
+}
+
+.card-imagem{
+  max-width: 90px;
+  max-height: 55px;
+  margin-right: 100px;
+
+}
+
+.space-above {
+  margin-top: 1px;
+}
+
+.msg-text {
+  font-size: 16px;
+  align-items: center;
+}
+
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
