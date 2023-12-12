@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { CardsService } from 'src/core/service/cards.service';
+import { Card } from '../credit.component';
 
 
 
@@ -14,28 +16,28 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CreditDetailsComponent implements OnInit {
 
   datas: number[] = [];
-  cards: string[] = [];
+  cards: String[] = [];
 
   formCard = this.formBuilder.group({
-    name: new FormControl<string>(''),
+    card: new FormControl<string>(''),
     dueDate: new FormControl<number>(0),
     betterDay: new FormControl<number>(0),
-    card: new FormControl<string>('')
+    name: new FormControl<string>('')
   });
-
 
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private snackBar: MatSnackBar,
     private location: Location,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cardsService: CardsService
     ) {
+      this.cards.push(...this.loadCard());
+
       for (let i = 1; i <= 28; i++) {
         this.datas.push(i);
       };
-
-      this.cards.push(...this.loadCard());
 
       this.formCard.get('card')?.valueChanges.subscribe((value) => {
         if (value === 'outro') {
@@ -58,12 +60,11 @@ export class CreditDetailsComponent implements OnInit {
 
   }
 
-  loadCard(): string[] {
-    const cardData: string[] = ['C6 Black', 'Digio', 'Gol'];
-    return cardData;
+  loadCard(): String[] {
+    return this.cardsService.listAllNameCards();
   }
 
-  private fillFormFromState(card: any) {
+  private fillFormFromState(card: Card) {
     if (card) {
       this.formCard.setValue({
         name: card.name,

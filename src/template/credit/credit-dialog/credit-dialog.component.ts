@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Card } from '../credit.component';
 
 
 
@@ -21,8 +22,8 @@ import { Router } from '@angular/router';
 })
 export class CreditDialogComponent implements OnInit {
 
-  cardData: any;
-  card: any;
+  cardData: Card[] = [];
+  card!: Card;
 
 
   constructor(

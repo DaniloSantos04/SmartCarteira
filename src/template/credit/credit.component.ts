@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common'; // Importe o CommonModule
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,7 +7,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CardsService } from 'src/core/service/cards.service';
 import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
+
+export interface Card {
+  id: number,
+  name: string
+  duedate: string,
+  image: string
+  betterDay: string;
+}
 
 
 @Component({
@@ -27,40 +36,29 @@ import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
 export class CreditComponent implements OnInit {
 
   //TODO - a imagem tem que ser salva em base64
-  cards = [
-    {
-      id: 1,
-      name: 'Azul',
-      duedate: '09',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRMYKv8fh4EOpqK0r4f4RWmLbC6XKX0dGEpAH_ghAxtF2PXmAYzQNMQnfWeqi0fTqsTn0&usqp=CAU',
-      betterDay: '02'
-    },
-    {
-      id: 2,
-      name: 'Gol',
-      duedate: '15',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSc4wShYqZWqXopLWjJkgmjnWJ2BfmZb68PHlPS-pQG7wV3TJ6HscsO8OY3-_d4MmdAc&usqp=CAU',
-      betterDay: '05'
-    }
-  ];
+  cards: Card[] = [];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private cardsService: CardsService) {
+      this.listAllCards();
+    }
 
   ngOnInit() {
+
   }
 
   create(){
     this.router.navigate(["create"], { relativeTo: this.activatedRoute });
   }
 
-  update(card: any){
+  update(card: Card){
     this.router.navigate(['edit'], { relativeTo: this.activatedRoute, state: { card: card } });
   }
 
-  delete(card: any): void {
+  delete(card: Card): void {
     console.log(card);
     this.dialog.open(CreditDialogComponent, {
       height: '172px',
@@ -69,6 +67,10 @@ export class CreditComponent implements OnInit {
         cardData: card
       }
     });
+  }
+
+  private listAllCards(){
+    this.cardsService.listAllCards().subscribe(datas => this.cards = datas)
   }
 
 }

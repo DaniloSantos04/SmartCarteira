@@ -37,7 +37,7 @@ export class AppComponent {
     {
       "order": 1,
       "name": "Inicio",
-      "path": "/home",
+      "path": "home",
       "component": "HomeComponent",
       "icone": "home",
       "nivel": 0
@@ -45,35 +45,43 @@ export class AppComponent {
   {
     "order": 2,
     "name": "Painel",
-    "path": "/dashboard",
+    "path": "dashboard",
     "component": "DashboardComponent",
     "icone": "dashboard",
     "nivel": 3
   },
   {
     "order": 3,
-    "name": "Cartão de Crédito",
-    "path": "/credit",
+    "name": "Recursos",
+    "path": "resource",
+    "component": "ResourceComponent",
+    "icone": "monetization_on",
+    "nivel": 0
+  },
+  {
+    "order": 4,
+    "name": "Cartões",
+    "path": "credit",
     "component": "CreditComponent",
     "icone": "credit_card",
     "nivel": 0
   },
   {
-    "order": 4,
+    "order": 5,
     "name": "Faturas",
-    "path": "/invoice",
+    "path": "invoice",
     "component": "InvoiceComponent",
     "icone": "receipt",
     "nivel": 0
   },
   {
-    "order": 5,
+    "order": 6,
     "name": "Compras",
-    "path": "/shopping",
+    "path": "shopping",
     "component": "ShoppingComponent",
     "icone": "shopping_cart",
     "nivel": 0
-  },
+  }
   ];
 
 

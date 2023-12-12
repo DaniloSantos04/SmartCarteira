@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Azul",
+    "duedate": "09",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRMYKv8fh4EOpqK0r4f4RWmLbC6XKX0dGEpAH_ghAxtF2PXmAYzQNMQnfWeqi0fTqsTn0&usqp=CAU",
+    "betterDay": "02"
+  },
+  {
+    "id": 2,
+    "name": "Gol",
+    "duedate": "15",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSc4wShYqZWqXopLWjJkgmjnWJ2BfmZb68PHlPS-pQG7wV3TJ6HscsO8OY3-_d4MmdAc&usqp=CAU",
+    "betterDay": "05"
+  },
+  {
+    "id": 3,
+    "name": "Digio",
+    "duedate": "01",
+    "betterDay": "02",
+    "image":"https://www.digio.com.br/blog/wp-content/uploads/2020/07/12-9-novo-cd-650x500px.jpg"
+  },
+  {
+    "id": 4,
+    "name": "C6 Black",
+    "duedate": "10",
+    "betterDay": "03",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnoC8_ZOfMKY6GYjv-AmB9PTs_OHKwwzSlO4gak5kd99X_O-1mlnVhUtG5AUpKmBxWCf8&usqp=CAU"
+  }
+
+
+]

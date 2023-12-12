@@ -17,6 +17,14 @@
   },
   {
     "order": 3,
+    "name": "Recursos",
+    "path": "resource",
+    "component": "ResourceComponent",
+    "icone": "monetization_on",
+    "nivel": 0
+  },
+  {
+    "order": 4,
     "name": "Cartões",
     "path": "credit",
     "component": "CreditComponent",
@@ -24,7 +32,7 @@
     "nivel": 0
   },
   {
-    "order": 4,
+    "order": 5,
     "name": "Faturas",
     "path": "invoice",
     "component": "InvoiceComponent",
@@ -32,7 +40,7 @@
     "nivel": 0
   },
   {
-    "order": 5,
+    "order": 6,
     "name": "Compras",
     "path": "shopping",
     "component": "ShoppingComponent",
