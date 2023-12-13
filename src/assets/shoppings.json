@@ -1,0 +1,34 @@
+[
+  {
+    "id": 350,
+    "descricao": "Açai da Chapada",
+    "valor": "18.25",
+    "numeroParcela": 1,
+    "formaPagamento": 1,
+    "dataCompra": "12/12/2023"
+  },
+  {
+    "id": 349,
+    "descricao": "Loja de roupas do vale",
+    "valor": "250.99",
+    "numeroParcela": 5,
+    "formaPagamento": 2,
+    "dataCompra": "12/12/2023"
+  },
+  {
+    "id": 348,
+    "descricao": "Loja de roupas do vale",
+    "valor": "250.50",
+    "numeroParcela": 5,
+    "formaPagamento": 2,
+    "dataCompra": "11/11/2023"
+  },
+  {
+    "id": 347,
+    "descricao": "Academia",
+    "valor": "120.00",
+    "numeroParcela": 2,
+    "formaPagamento": 3,
+    "dataCompra": "11/11/2023"
+  }
+]

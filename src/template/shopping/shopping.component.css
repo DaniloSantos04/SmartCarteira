@@ -1,0 +1,23 @@
+.mat-shopping-title,
+.mat-shopping-subtitle {
+  margin-left: 20px;
+}
+
+.space-above {
+  margin-top: 1px;
+}
+
+.shopping-container {
+  margin-top: 20px; /* Adiciona margem no topo da div */
+  margin-left: 20px; /* Adiciona margem à esquerda da div */
+  margin-right: 20px; /* Adiciona margem à esquerda da div */
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+}
+

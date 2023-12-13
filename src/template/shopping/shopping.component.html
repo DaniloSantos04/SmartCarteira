@@ -1,0 +1,74 @@
+<mat-card>
+  <mat-card-title class="mat-shopping-title">Últimas compras</mat-card-title>
+  <p class="space-above"></p>
+  <mat-divider></mat-divider>
+  <p class="space-above"></p>
+  <mat-card-subtitle class="mat-shopping-subtitle">Partiu! Vamos cadastrar todas as compras para manter o controle sempre afiado. Por aqui, só exibimos as compras do mês atual. Foco no presente financeiro!</mat-card-subtitle>
+  <p class="space-above"></p>
+  <mat-divider></mat-divider>
+  <button mat-icon-button color="primary" matTooltip="Nova Compra" (click)="insert()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-divider></mat-divider>
+</mat-card>
+
+
+
+<div class="shopping-container">
+
+  <mat-card>
+    <mat-card-content>
+      <table cdk-table [dataSource]="shoppings">
+        <!-- Data compra -->
+        <ng-container cdkColumnDef="data">
+          <th cdk-header-cell *cdkHeaderCellDef> Data</th>
+          <td cdk-cell *cdkCellDef="let shopping"> {{shopping.dataCompra}} </td>
+        </ng-container>
+
+        <!-- Descrição -->
+        <ng-container cdkColumnDef="descricao">
+          <th cdk-header-cell *cdkHeaderCellDef> Descrição </th>
+          <td cdk-cell *cdkCellDef="let shopping"> {{shopping.descricao}} </td>
+        </ng-container>
+
+        <!-- Valor compra-->
+        <ng-container cdkColumnDef="valor">
+          <th cdk-header-cell *cdkHeaderCellDef> Valor </th>
+          <td cdk-cell *cdkCellDef="let shopping"> {{ shopping.valor | currency:'BRL':'symbol':'1.2-2' }} </td>
+        </ng-container>
+
+        <!-- Numero parcela -->
+        <ng-container cdkColumnDef="numeroParcela">
+          <th cdk-header-cell *cdkHeaderCellDef> Parcelas </th>
+          <td cdk-cell *cdkCellDef="let shopping"> {{shopping.numeroParcela}} </td>
+        </ng-container>
+
+        <!-- Forma de pagamento -->
+        <ng-container cdkColumnDef="formaPagamento">
+          <th cdk-header-cell *cdkHeaderCellDef> Forma de Pagamento </th>
+          <td cdk-cell *cdkCellDef="let shopping"> {{shopping.formaPagamento}} </td>
+        </ng-container>
+
+        <!-- Forma de pagamento -->
+        <ng-container cdkColumnDef="acao">
+          <th cdk-header-cell *cdkHeaderCellDef> Ações </th>
+          <td cdk-cell *cdkCellDef="let shopping">
+            <button mat-icon-button color="primary" matTooltip="Editar" (click)="update(shopping)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn" matTooltip="Excluir" (click)="delete(shopping)">
+              <mat-icon>delete</mat-icon>
+            </button> </td>
+        </ng-container>
+
+        <tr cdk-header-row *cdkHeaderRowDef="titleColumns"></tr>
+        <tr cdk-row *cdkRowDef="let row; columns: titleColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+
+</div>
+
+

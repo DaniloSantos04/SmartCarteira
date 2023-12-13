@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreditDetailsComponent } from 'src/template/credit/credit-details/credit-details.component';
 import { NavbarComponent } from 'src/template/navbar/navbar.component';
 
+import { ShoppingDetailsComponent } from 'src/template/shopping/shopping-details/shopping-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -28,7 +29,8 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    CreditDetailsComponent
+    CreditDetailsComponent,
+    ShoppingDetailsComponent
   ],
   imports: [
     BrowserModule,
