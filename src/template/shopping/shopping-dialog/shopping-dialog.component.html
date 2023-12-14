@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="msg-title">Excluir compra</h1>
+
+<div mat-dialog-content class="msg-text">
+  Estamos animados para saber: quer mesmo dar 'tchau' para a compra {{shopping.descricao}}, no valor de {{shopping.valor}}?
+</div>
+<p class="space-above"></p>
+<p class="space-above"></p>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button color="primary" (click)="onSubimit()" class="button-sim">Sim</button>
+  <button mat-raised-button color="accent"(click)="onCancel()" class="button-nao">Não</button>
+</div>
+
+

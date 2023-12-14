@@ -42,7 +42,7 @@ export class CreditDialogComponent implements OnInit {
   onCancel() {
     this.dialogRef.close();
     this.router.navigate(["credit"]);
-    this.snackBar.open("Não vamos apagar o cartão, mas é fundamental manter o controle sobre ele! OK?!", 'OK', {
+    this.snackBar.open("Não vamos apagar o cartão, mas é fundamental manter o controle sobre ele! OK?!", ' 👀', {
       duration: 7000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
@@ -53,7 +53,7 @@ export class CreditDialogComponent implements OnInit {
     //TODO - substituir pelo metodo de deletar no back-end
     this.dialogRef.close();
     this.router.navigate(["credit"]);
-    this.snackBar.open("Caiu fora! Removemos mais um vilão do nosso caminho!", '', {
+    this.snackBar.open("Caiu fora! Removemos mais um vilão do nosso caminho!", '🚀', {
       duration: 6000,
       horizontalPosition: 'center',
       verticalPosition: 'top',

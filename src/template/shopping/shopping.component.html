@@ -46,7 +46,7 @@
         <!-- Forma de pagamento -->
         <ng-container cdkColumnDef="formaPagamento">
           <th cdk-header-cell *cdkHeaderCellDef> Forma de Pagamento </th>
-          <td cdk-cell *cdkCellDef="let shopping"> {{shopping.formaPagamento}} </td>
+          <td cdk-cell *cdkCellDef="let shopping"> {{findPaymentMethodById(shopping.formaPagamento)}} </td>
         </ng-container>
 
         <!-- Forma de pagamento -->

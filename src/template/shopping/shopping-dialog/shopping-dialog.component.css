@@ -1,0 +1,32 @@
+.space-above {
+  margin-top: 1px;
+}
+
+.msg-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.msg-text {
+  font-size: 16px;
+  align-items: center;
+  margin-left: 30px;
+}
+
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-sim{
+  margin-left: 3px;
+  margin-bottom: 3px;
+  background-color: rgb(73, 73, 189);
+}
+
+.button-nao{
+  margin-right: 3px;
+  margin-bottom: 3px;
+  background-color: rgb(209, 95, 95);
+}

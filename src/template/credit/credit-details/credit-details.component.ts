@@ -92,7 +92,7 @@ export class CreditDetailsComponent implements OnInit {
 
   onCancel() {
     this.location.back();
-    this.snackBar.open("Ops! Parece que não houve mudanças! Vamos dar outra chance para o sucesso acontecer!", 'OK', {
+    this.snackBar.open("Ops! Parece que não houve mudanças! Vamos dar outra chance para o sucesso acontecer!", '🤔', {
       duration: 7000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
@@ -103,7 +103,7 @@ export class CreditDetailsComponent implements OnInit {
     console.log(this.formCard.value);
     //TODO - substituir pelo metodo de salvar no back-end
     this.location.back();
-    this.snackBar.open("Salvei! Cartão guardado no cofrinho do sucesso financeiro!", '', {
+    this.snackBar.open("Salvei! Cartão guardado no cofrinho do sucesso financeiro!", '🏦', {
       duration: 6000,
       horizontalPosition: 'center',
       verticalPosition: 'top',

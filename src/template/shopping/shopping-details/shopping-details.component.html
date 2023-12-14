@@ -3,39 +3,55 @@
     <mat-card-title>Nova Compra</mat-card-title>
   </mat-card-header>
 
-  <!--<mat-card-content>
+  <p class="space-above"></p>
+
+  <mat-card-content>
     <div class="div-mat-form-container">
-      <form [formGroup]="formCard">
-        <mat-form-field appearance="outline">
-          <mat-label>Cartões</mat-label>
-          <mat-select formControlName="card">
-            <mat-option *ngFor="let card of cards" [value]="card">{{ card }}</mat-option>
-            <mat-option value="outro">Outro</mat-option>
-          </mat-select>
+      <form [formGroup]="formShopping">
+
+        <mat-form-field appearance="outline" class="formShopping-data-field">
+          <mat-label>Data compra</mat-label>
+          <input formControlName="data" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Vencimento</mat-label>
-          <mat-select formControlName="dueDate">
-            <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
-          </mat-select>
+        <mat-form-field appearance="outline" class="formShopping-description-field">
+          <mat-label>Descrição</mat-label>
+          <input matInput formControlName="descricao">
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Melhor dia de compra</mat-label>
-          <mat-select formControlName="betterDay">
-            <mat-option *ngFor="let data of datas" [value]="data">{{ data }}</mat-option>
-          </mat-select>
+        <mat-form-field appearance="outline" class="formShopping-data-field">
+          <mat-label>Valor</mat-label>
+          <input matInput formControlName="valor" [value]="formShopping.get('valor')?.value | currency:'BRL':'symbol':'1.2-2'">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" *ngIf="formCard.get('card')?.value === 'outro'">
-          <mat-label>Nome</mat-label>
-          <input matInput formControlName="name">
+        <mat-form-field appearance="outline" class="formShopping-data-field">
+          <mat-label>Número parcelas</mat-label>
+          <input matInput formControlName="numeroParcela" type="number" matNumberInput>
+        </mat-form-field>
+
+        <!-- mensagem de erro Número parcelas -->
+        <mat-error *ngIf="formShopping.get('numeroParcela')?.hasError('min')">
+          Oops! Parcelas com valor menor que 1 não existem, né?
+        </mat-error>
+        <mat-error *ngIf="formShopping.get('numeroParcela')?.hasError('pattern')">
+          Vamos corrigir isso, certo?
+        </mat-error>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Forma de pagamento</mat-label>
+          <mat-select formControlName="formaPagamento">
+            <mat-option *ngFor="let formaPagamento of formaPagamentos" [value]="formaPagamento.id">
+              {{ formaPagamento.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </form>
     </div>
     <mat-divider></mat-divider>
-  </mat-card-content> -->
+  </mat-card-content>
 
   <mat-card-actions class="shopping-actions">
     <button mat-icon-button color="primary" matTooltip="Salvar" (click)="onSubimit()">

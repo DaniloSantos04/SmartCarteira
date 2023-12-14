@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,8 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreditDetailsComponent } from 'src/template/credit/credit-details/credit-details.component';
 import { NavbarComponent } from 'src/template/navbar/navbar.component';
-
 import { ShoppingDetailsComponent } from 'src/template/shopping/shopping-details/shopping-details.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -30,7 +32,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     NavbarComponent,
     CreditDetailsComponent,
-    ShoppingDetailsComponent
+    ShoppingDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,11 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     MatIconModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
