@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ export class NavbarComponent implements OnInit {
 
   @Output() eventoToggleButon: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,5 +18,10 @@ export class NavbarComponent implements OnInit {
   toggleButon(){
       this.eventoToggleButon.emit();
   }
+
+  redirectToHome(){
+    this.router.navigate(["home"]);
+  }
+
 
 }

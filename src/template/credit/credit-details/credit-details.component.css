@@ -1,8 +1,10 @@
 .credit-details {
-  width: calc(100% - 50vw);
-  height: calc(100% - 52vh);
+  width: 100%;
+  height: calc(100% - 50%);
   margin: 15px;
   overflow: auto;
+  max-width: calc(100% - 20%);
+  max-height: calc(100% - 60%);
 }
 
 .div-mat-form-container mat-form-field + mat-form-field {
