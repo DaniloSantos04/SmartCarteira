@@ -1,6 +1,9 @@
 .card {
-  width: calc(100% - 20vw);
-  height: calc(100% - 70vh);
+  width: calc(100% - 55vw);
+  height: calc(100% - 75vh);
   margin: 15px;
   overflow: auto;
+  margin-left: 165px;
+  min-width: 500px;
+  min-height: 100px;
 }
