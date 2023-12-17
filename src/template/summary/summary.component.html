@@ -1,0 +1,137 @@
+<mat-card>
+  <mat-card-title class="resume">Resumo</mat-card-title>
+
+  <mat-divider></mat-divider>
+  <p class="space-above"></p>
+
+  <mat-card-subtitle class="resume-header-subtitle">Olá, arquiteto(a) da SmartCarteira! 🏰✨🌟 Aqui é onde você encontra todos os detalhes mágicos da sua carteira. 💼✨ Vamos navegar pelos números e fazer da sua jornada financeira algo ainda mais incrível!</mat-card-subtitle>
+  <p class="space-above"></p>
+
+  <mat-divider></mat-divider>
+
+  <div class="summary-container">
+    <mat-card class="summary-month" *ngFor="let summary of summarys">
+      <mat-card-header (click)="details(summary)">
+        <mat-card-title-group>
+          <mat-card-title class="summary-name-month">{{summary.name}}</mat-card-title>
+          <mat-card-subtitle class="summary-year-month">{{summary.year}} </mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+    </mat-card>
+  </div>
+
+  <p class="space-above"></p>
+  <mat-divider></mat-divider>
+</mat-card>
+
+<div class="div-financialResult" [ngClass]="{'negativo': summaryDetails.financialResult < 0, 'positivo': summaryDetails.financialResult > 0, 'zero': summaryDetails.financialResult === 0}">
+   Resultado Financeiro : {{ summaryDetails.financialResult| currency:'BRL':'symbol':'1.2-2' }}
+</div>
+<p class="space-above"></p>
+
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title><mat-icon>paid</mat-icon> Renda Total  : {{ summaryDetails.totalIncome| currency:'BRL':'symbol':'1.2-2' }} </mat-panel-title>
+      <mat-panel-description>Aqui está a soma de suas receitas! 💰📊 Vamos seguir com estilo na jornada financeira!</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="shopping-container">
+      <table mat-table [dataSource]="summaryDetails.resources" class="mat-elevation-z8">
+
+        <!-- Data-->
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+        </ng-container>
+
+        <!-- Descrição -->
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+        </ng-container>
+
+        <!-- valor -->
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> valor </th>
+          <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: titleColumns;"></tr>
+      </table>
+    </div>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title><mat-icon>payments</mat-icon> Despesas Fixas  : {{ summaryDetails.totalFixedExpenses| currency:'BRL':'symbol':'1.2-2' }}  </mat-panel-title>
+      <mat-panel-description>Aqui está a soma das suas despesas fixas. 💸💼 Vamos explorar esses números para fortalecer ainda mais a nossa base financeira!</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="shopping-container">
+      <table mat-table [dataSource]="summaryDetails.fixeds" class="mat-elevation-z8">
+
+        <!-- Data-->
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+        </ng-container>
+
+        <!-- Descrição -->
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+        </ng-container>
+
+        <!-- valor -->
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> valor </th>
+          <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: titleColumns;"></tr>
+      </table>
+    </div>
+
+
+
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> <mat-icon>credit_card_heart</mat-icon> Despesas Variaveis  : {{ summaryDetails.totalVariableExpenses| currency:'BRL':'symbol':'1.2-2' }}  </mat-panel-title>
+      <mat-panel-description>Aqui está a totalidade dos gastos regulares. 💸💡 Vamos mergulhar nos números e fortalecer nosso planejamento financeiro!</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="shopping-container">
+      <table mat-table [dataSource]="summaryDetails.variables" class="mat-elevation-z8">
+
+        <!-- Data-->
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+        </ng-container>
+
+        <!-- Descrição -->
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+        </ng-container>
+
+        <!-- valor -->
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> valor </th>
+          <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="titleColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: titleColumns;"></tr>
+      </table>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+

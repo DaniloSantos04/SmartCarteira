@@ -1,0 +1,70 @@
+.resume {
+  width: 70%;
+  margin: 15px;
+  overflow: auto;
+  max-width: calc(100% - 20%);
+  max-height: calc(100% - 60%);
+  min-height: 20%;
+  margin-left: 20px;
+}
+
+.resume-header-subtitle {
+  margin-left: 20px; /* Adiciona margem à esquerda do mat-card-title e mat-card-subtitle */
+}
+
+.space-above {
+  margin-top: 0.5px;
+}
+
+.summary-container {
+  margin-top: 10px; /* Adiciona margem no topo da div */
+  margin-left: 20px; /* Adiciona margem à esquerda da div */
+  display: flex; /* Utilize flexbox */
+  flex-wrap: wrap; /* Quebra para a próxima linha se não couberem */
+  gap: 20px; /* Espaço entre os cartões */
+}
+
+.summary-month {
+  background-color: #dcdcdc;
+  max-width: 95px;
+}
+
+.summary-name-month {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.summary-year-month {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.div-financialResult {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.div-financialResult.negativo {
+  color: red;
+}
+
+.div-financialResult.positivo {
+  color: blue;
+}
+
+.div-financialResult.zero {
+  color: green;
+}
+
+.shopping-container {
+  margin-top: 20px; /* Adiciona margem no topo da div */
+  margin-left: 20px; /* Adiciona margem à esquerda da div */
+  margin-right: 20px; /* Adiciona margem à esquerda da div */
+}
+
+
+
+

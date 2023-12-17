@@ -1,0 +1,59 @@
+{
+  "month": 12,
+  "year": 2023,
+  "financialResult": 3300.00,
+  "totalIncome": 10000,
+  "totalFixedExpenses": 2598.60,
+  "totalVariableExpenses": 4101.40,
+  "resources": [
+    {
+      "descricao": "Salario",
+      "valor": 6000,
+      "data": "01/12/2023"
+    },
+    {
+      "descricao": "Quizena Salario",
+      "valor": 4000,
+      "data": "15/12/2023"
+    }
+  ],
+  "fixeds": [
+    {
+      "descricao": "Condominio",
+      "valor": 500,
+      "data": "05/12/2023"
+    },
+    {
+      "descricao": "Alugeul",
+      "valor": 1974.28,
+      "data": "07/12/2023"
+    },
+    {
+      "descricao": "Luz",
+      "valor": 124.32,
+      "data": "19/12/2023"
+    }
+  ],
+  "variables": [
+    {
+      "descricao": "Cartão Azul",
+      "valor": 3239.25,
+      "data": "09/12/2023"
+    },
+    {
+      "descricao": "Cartão Nubank",
+      "valor": 157.89,
+      "data": "10/12/2023"
+    },
+    {
+      "descricao": "Cartão Gol",
+      "valor": 682.30,
+      "data": "15/12/2023"
+    },
+    {
+      "descricao": "Dinheiro/Debito/PIX",
+      "valor": 21.96,
+      "data": "16/12/2023"
+    }
+  ]
+}

@@ -22,5 +22,13 @@
     "component": "ShoppingComponent",
     "icone": "shopping_cart",
     "nivel": 0
+  },
+  {
+    "order": 7,
+    "name": "Resumo",
+    "path": "summary",
+    "component": "SummaryComponent",
+    "icone": "summarize",
+    "nivel": 0
   }
 ]
